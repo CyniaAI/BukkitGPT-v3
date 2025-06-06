@@ -1,10 +1,11 @@
-import yaml
+import os
+from dotenv import load_dotenv
 from log_writer import logger
 
 
 def load_config():
     """
-    Loads the configuration from the ``config.yaml`` file and sets the global
+    Loads the configuration from the ``.env`` file and sets the global
     variables accordingly.
 
     If the ``GENERATION_MODEL`` key in the configuration is set to ``gpt-4``,
@@ -14,16 +15,24 @@ def load_config():
     Returns:
         None
     """
-    with open("config.yaml", "r") as conf:
-        config_content = yaml.safe_load(conf)
-        for key, value in config_content.items():
-            globals()[key] = value
-            logger(f"config: {key} -> {value if key != 'API_KEY' else '********'}")
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    # Configuration keys that should be loaded
+    config_keys = [
+        'LLM_PROVIDER', 'API_KEY', 'BASE_URL', 'GENERATION_MODEL', 'FIXING_MODEL',
+        'VERSION_NUMBER', 'SYS_GEN', 'USR_GEN', 'SYS_EDIT', 'USR_EDIT'
+    ]
+    
+    for key in config_keys:
+        value = os.getenv(key, '')
+        globals()[key] = value
+        logger(f"config: {key} -> {value if key != 'API_KEY' else '********'}")
 
 
 def edit_config(key, value):
     """
-    Edits the config file.
+    Edits the config file (.env).
 
     Args:
         key (str): The key to edit.
@@ -32,25 +41,40 @@ def edit_config(key, value):
     Returns:
         bool: True
     """
-
-    with open("config.yaml", "r") as conf:
-        config_content = conf.readlines()
-
-    with open("config.yaml", "w") as conf:
-        for line in config_content:
-            if line.startswith(key):
-                if value == True:
-                    write_value = "True"
-                elif value == False:
-                    write_value = "False"
-                else:
-                    write_value = f'"{value}"'
-                if "#" in line:
-                    conf.write(f"{key}: {write_value} # {line.split('#')[1]}\n")
-                else:
-                    conf.write(f"{key}: {write_value}\n")
+    env_file_path = '.env'
+    
+    # Read current .env file content
+    env_lines = []
+    try:
+        with open(env_file_path, "r", encoding='utf-8') as f:
+            env_lines = f.readlines()
+    except FileNotFoundError:
+        # If .env doesn't exist, create it
+        pass
+    
+    # Update or add the key-value pair
+    key_found = False
+    for i, line in enumerate(env_lines):
+        if line.strip().startswith(f"{key}="):
+            if isinstance(value, bool):
+                write_value = "true" if value else "false"
             else:
-                conf.write(line)
+                write_value = str(value)
+            env_lines[i] = f"{key}={write_value}\n"
+            key_found = True
+            break
+    
+    # If key wasn't found, add it
+    if not key_found:
+        if isinstance(value, bool):
+            write_value = "true" if value else "false"
+        else:
+            write_value = str(value)
+        env_lines.append(f"{key}={write_value}\n")
+    
+    # Write back to .env file
+    with open(env_file_path, "w", encoding='utf-8') as f:
+        f.writelines(env_lines)
 
     return True
 

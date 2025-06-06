@@ -30,21 +30,16 @@ BukkitGPT is an open source, free, AI-powered Minecraft Bukkit plugin generator.
 > Issues and questions about BukkitGPT WebApp should be directed to our [Discord Server](https://discord.gg/kTZtXw8s7r).
 
 Don't want to deal with Python, Maven, BuildTools, and other complicated environments?
-Hey! Here's [the WebApp version](https://webapp.CyniaAI.org) designed just for you - generate plugins **even on your phone**!
+Hey! Here's [the WebApp version](https://cynia.dev) designed just for you - generate plugins **even on your phone**!
 
-*The service is paid since the API key we are using is not free. You can get 1 key for 5 generations for $1 [here](https://ko-fi.com/s/cd5d4fcaba) or [here (for Chinese users)](https://afdian.com/item/b839835461e311efbd1252540025c377)
+*The service is paid since the API key we are using is not free. You can get 1 key for 5 generations for $1 [here](https://afdian.com/item/b839835461e311efbd1252540025c377)
 
 *The WebApp edition doesn't support plugin editing feature yet, but we are working on it.
-</details>
 
 ## Features
 
 - Automatically generate plugin code based on the user's description.
 - Edit existing plugins.
-
-## Plans and TODOs
-
-Moved to [Projects Tab](https://github.com/orgs/CyniaAI/projects/4).
 
 ### Other projects of CyniaAI Team
 - [x] Bukkit plugin generator. {*.jar} ([BukkitGPT-v3](https://github.com/CyniaAI/BukkitGPT-v3))
@@ -65,7 +60,7 @@ python -m venv venv
 source venv/bin/activate # for Windows, use `venv\Scripts\activate`
 pip install -r requirements.txt
 ```
-2. Edit `config.yaml` and fill in your OpenAI API Key.
+2. Copy `.env.example` to `.env` and edit it to set `LLM_PROVIDER` (e.g. `openai`, `anthropic`, `google`) and fill in your provider API key.
 3. Run `ui.py` (with command `python ui.py`).
 4. Enjoy!
 

@@ -9,3 +9,5 @@ codes/*
 dev/*
 test.txt
 test/*
+
+.env

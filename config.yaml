@@ -1,10 +1,10 @@
 ########## EDIT REQUIRED ##########
 
 # GPT SETTINGS #
-# Get your api key from openai. Remember google/bing is always your best friend.
-
+# Choose your provider (`openai`, `anthropic`, or `google`) and fill in the API key.
+LLM_PROVIDER: "openai"
 API_KEY: "" # Get your API Key from https://openrouter.ai/settings/keys for free
-BASE_URL: "https://openrouter.ai/api/v1"
+BASE_URL: "https://openrouter.ai/api/v1" # Only used with the `openai` provider
 
 GENERATION_MODEL: "deepseek/deepseek-r1:free"
 FIXING_MODEL: "openai/gpt-4o"

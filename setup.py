@@ -5,7 +5,7 @@ import config
 files = [
     "logs",
     "codes",
-    "config.yaml",
+    ".env",
     "LICENSE",
     "README.md",
     "requirements.txt",

@@ -23,7 +23,7 @@ def open_config(args: dict) -> bool:
     Returns:
         bool: Always True.
     """
-    os.system("notepad config.yaml")
+    os.system("notepad .env")
 
     return True
 
