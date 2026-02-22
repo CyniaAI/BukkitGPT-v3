@@ -6,8 +6,22 @@
 </div>
 
 
-> [!NOTE]
-> Developers and translators are welcome to join the CyniaAI Team!
+> ⚠️ **Project Status: Development Paused**
+> 
+> Thank you to everyone who has supported this project! As we continued to explore the intersection of AI and Minecraft, we discovered a much more elegant and native solution. Therefore, active development on this project has been paused. We highly recommend all users check out our brand-new, next-generation project: **[MineClawd](https://github.com/Zhou-Shilin/MineClawd)**.
+> 
+> Compared to this project (which requires out-of-game generation, tedious setups, server restarts, or external schematic imports), **MineClawd** brings the highly autonomous **OpenClaw** AI agent framework directly into Minecraft!
+> 
+> **Why switch to MineClawd?**
+> * 🧠 **Ultimate Freedom**: Accomplish almost *anything* in-game by executing instant or persistent KubeJS code.
+> * 📦 **Dynamic Pseudo-Creation**: Dynamically register new items, blocks, and fluids on the fly.
+> * ⚡ **Seamless Experience**: Runs smoothly as a Server-only mod with immediate effects. An optional Client mod is also available for a user-friendly GUI.
+> 
+> Everything this old project tried to achieve, MineClawd does better, faster, and seamlessly in-game.
+> 
+> 🌟 **Discover and Support MineClawd:**
+> * **Modrinth:** [Download here](https://modrinth.com/mod/mineclawd) (Supports NeoForge 1.21.1 | Forge 1.20.1 | Fabric 1.20.1)
+> * **GitHub:** [Zhou-Shilin/MineClawd](https://github.com/Zhou-Shilin/MineClawd) (If you like the concept, please drop a ⭐ Star!)
 
 ## Introduction
 > Give the LLM your idea, AI generates customized Minecraft server plugins with one click, which is suitable for Bukkit, Spigot, Paper, Purpur, Arclight, CatServer, Magma, Mohist and other Bukkit-based servers.
